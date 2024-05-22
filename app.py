@@ -1,29 +1,51 @@
+import pickle
 import streamlit as st
-import streamlit.components.v1 as stc
-import numpy as np
-import pandas as pd
-from matplotlib import pyplot as plt
-import seaborn as sns
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
 
-def load_data(file_path):
-    df = pd.read_csv(file_path)
-    return df
+pegawai_model = pickle.load(open('model_rf_klasifikasi_sdm_203400014.pkl', 'rb'))
 
-# Memuat data
-file_path = "Employee.csv"
-df = load_data(file_path)
-
-def plot_confusion_matrix(cm):
-    plt.figure(figsize=(10, 6))
-    sns.heatmap(
-        cm, annot=True, fmt='d', cmap='PuBu', linewidths=0.4, square=True, cbar=True,
-        xticklabels=["0", "1"],
-        yticklabels=["0", "1"]
-    )
-    plt.xlabel('Predicted', fontsize=14, fontweight='bold')
-    plt.ylabel('Actual', fontsize=14, fontweight='bold')
-    plt.title('Confusion Matrix', fontsize=16, fontweight='bold')
-    plt.yticks(rotation=360)
-    st.pyplot()
+# page title
+    st.title('Employee Prediction using ML')
+    
+    
+    # getting the input data from the user
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        Education = st.text_input('Educational Qualifications of Employee')
+        
+    with col2:
+        JoiningYear = st.text_input('Joining Year Each Employee in Company')
+    
+    with col3:
+        City = st.text_input('Location Employee')
+    
+    with col1:
+        PaymentTier = st.text_input('Categorization of Salary tiers')
+    
+    with col2:
+        Age = st.text_input('Age of Each Employee')
+    
+    with col3:
+        Gender = st.text_input('Gender Identity of Employee')
+    
+    with col1:
+        EverBenched = st.text_input('Condition when employee has ever been temporarily without assigned work')
+    
+    with col2:
+        ExperienceInCurrentDomain = st.text_input('Experience Employees Have in Their Current Field.')
+    
+    
+    # code for Prediction
+    employee_prediction = ''
+    
+    # creating a button for Prediction
+    
+    if st.button('Employee Prediction Result'):
+        diab_prediction = diabetes_model.predict([[Education, JoiningYear, City, PaymentTier, Age, Gender, EverBenched, ExperienceInCurrentDomain]])
+        
+        if (diab_prediction[0] == 1):
+          diab_diagnosis = 'The employee is leave'
+        else:
+          diab_diagnosis = 'The employee is not leave'
+        
+    st.success(employee_prediction)
