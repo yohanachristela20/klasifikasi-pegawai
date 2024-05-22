@@ -1,7 +1,7 @@
 import pickle
 import streamlit as st
 
-pegawai_model = pickle.load(open('model_rf_klasifikasi_sdm_203400014.pkl', 'rb'))
+employee_model = pickle.load(open('model_rf_klasifikasi_sdm_203400014.pkl', 'rb'))
 
 # page title
 st.title('Employee Prediction using ML')
@@ -41,11 +41,11 @@ employee_prediction = ''
 # creating a button for Prediction
 
 if st.button('Employee Prediction Result'):
-    diab_prediction = diabetes_model.predict([[Education, JoiningYear, City, PaymentTier, Age, Gender, EverBenched, ExperienceInCurrentDomain]])
+    prediction = employee_model.predict([[Education, JoiningYear, City, PaymentTier, Age, Gender, EverBenched, ExperienceInCurrentDomain]])
     
-    if (diab_prediction[0] == 1):
-      diab_diagnosis = 'The employee is leave'
+    if (prediction[0] == 1):
+      employee_prediction = 'The employee is leave'
     else:
-      diab_diagnosis = 'The employee is not leave'
+      employee_prediction = 'The employee is not leave'
     
 st.success(employee_prediction)
