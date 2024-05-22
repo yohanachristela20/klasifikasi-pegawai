@@ -27,6 +27,3 @@ def plot_confusion_matrix(cm):
     plt.title('Confusion Matrix', fontsize=16, fontweight='bold')
     plt.yticks(rotation=360)
     st.pyplot()
-
-# Memplot confusion matrix
-plot_confusion_matrix(cm)
