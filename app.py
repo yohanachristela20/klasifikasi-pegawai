@@ -6,7 +6,6 @@ from matplotlib import pyplot as plt
 import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-from imblearn.over_sampling import SMOTE
 
 def load_data(file_path):
     df = pd.read_csv(file_path)
