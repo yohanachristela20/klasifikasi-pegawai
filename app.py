@@ -23,22 +23,22 @@ with col1:
     ExperienceInCurrentDomain = st.text_input('Experience Employees')
 
 with col2:
-    GenderMale = st.text_input('Gender Male')
+    Gender_Male = st.text_input('Gender Male')
 
 with col3:
-   EverBenchedYes = st.text_input('EverBenched Yes')
+   EverBenched_Yes = st.text_input('EverBenched Yes')
 
 with col1:
-     EducationMasters = st.text_input('Education Masters')
+     Education_Masters = st.text_input('Education Masters')
 
 with col2:
-    EducationPHD = st.text_input('Education PHD')
+    Education_PHD = st.text_input('Education PHD')
     
 with col3:
-     CityNewDelhi = st.text_input('City New Delhi')
+     City_NewDelhi = st.text_input('City New Delhi')
 
 with col1:
-    CityPune = st.text_input('City Pune')
+    City_Pune = st.text_input('City Pune')
 
 
 # code for Prediction
@@ -47,7 +47,7 @@ employee_prediction = ''
 # creating a button for Prediction
 
 if st.button('Employee Prediction Result'):
-    prediction = employee_model.predict([[JoiningYear, PaymentTier, Age, ExperienceInCurrentDomain, GenderMale, EverBenchedYes, EducationMasters, EducationPHD, CityNewDelhi, CityPune ]])
+    prediction = employee_model.predict([[JoiningYear, PaymentTier, Age, ExperienceInCurrentDomain, Gender_Male, EverBenched_Yes, Education_Masters, Education_PHD, City_New Delhi, City_Pune ]])
     
     if (prediction[0] == 1):
       employee_prediction = 'The employee is leave'
