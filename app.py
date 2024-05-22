@@ -35,7 +35,7 @@ with col2:
     Education_PHD = st.text_input('Education PHD')
     
 with col3:
-     City_NewDelhi = st.text_input('City New Delhi')
+     City_New Delhi = st.text_input('City New Delhi')
 
 with col1:
     City_Pune = st.text_input('City Pune')
