@@ -15,17 +15,6 @@ def load_data(file_path):
 file_path = "Employee.csv"
 df = load_data(file_path)
 
-def plot_age_distribution(data):
-    plt.figure(figsize=(8, 6))
-    sns.histplot(data['Age'])
-    plt.title('Age Distribution', fontsize=15)
-    plt.xlabel('Age', fontsize=12)
-    plt.ylabel('Count', fontsize=12)
-    st.pyplot()
-
-# Panggil fungsi plot_age_distribution dengan data df
-plot_age_distribution(df)
-
 def plot_confusion_matrix(cm):
     plt.figure(figsize=(10, 6))
     sns.heatmap(
