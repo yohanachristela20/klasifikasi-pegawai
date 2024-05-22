@@ -8,31 +8,37 @@ st.title('Employee Prediction using ML')
 
 
 # getting the input data from the user
-col1, col2, col3 = st.columns(3)
+col1, col2, col3 = st.columns(4)
 
 with col1:
-    Education = st.text_input('Educational Qualifications of Employee')
+    JoiningYear = st.text_input('Joining Year')
     
 with col2:
-    JoiningYear = st.text_input('Joining Year Each Employee in Company')
-
-with col3:
-    City = st.text_input('Location Employee')
-
-with col1:
     PaymentTier = st.text_input('Categorization of Salary tiers')
 
-with col2:
+with col3:
     Age = st.text_input('Age of Each Employee')
 
-with col3:
-    Gender = st.text_input('Gender Identity of Employee')
-
 with col1:
-    EverBenched = st.text_input('Condition when employee has ever been temporarily without assigned work')
+    ExperienceInCurrentDomain = st.text_input('Experience Employees')
 
 with col2:
-    ExperienceInCurrentDomain = st.text_input('Experience Employees Have in Their Current Field.')
+    GenderMale = st.text_input('Gender Male')
+
+with col3:
+   EverBenchedYes = st.text_input('EverBenched Yes')
+
+with col1:
+     EducationMasters = st.text_input('Education Masters')
+
+with col2:
+    EducationPHD = st.text_input('Education PHD')
+    
+with col3:
+     CityNewDelhi = st.text_input('City New Delhi')
+
+with col1:
+    CityPune = st.text_input('City Pune')
 
 
 # code for Prediction
@@ -41,7 +47,7 @@ employee_prediction = ''
 # creating a button for Prediction
 
 if st.button('Employee Prediction Result'):
-    prediction = employee_model.predict([[Education, JoiningYear, City, PaymentTier, Age, Gender, EverBenched, ExperienceInCurrentDomain]])
+    prediction = employee_model.predict([[JoiningYear, PaymentTier, Age, ExperienceInCurrentDomain, GenderMale, EverBenchedYes, EducationMasters, EducationPHD, CityNewDelhi, CityPune ]])
     
     if (prediction[0] == 1):
       employee_prediction = 'The employee is leave'
