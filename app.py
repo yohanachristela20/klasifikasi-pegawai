@@ -8,12 +8,13 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from imblearn.over_sampling import SMOTE
 
-def load_data(data):
-    df = pd.read_csv(data)
+def load_data(file_path):
+    df = pd.read_csv(file_path)
     return df
 
 # Memuat data
-df = load_data("Employee.csv")
+file_path = "Employee.csv"
+df = load_data(file_path)
 
 def plot_age_distribution(data):
     plt.figure(figsize=(8, 6))
