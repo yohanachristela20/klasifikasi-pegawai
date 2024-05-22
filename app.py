@@ -8,7 +8,7 @@ st.title('Employee Prediction using ML')
 
 
 # getting the input data from the user
-col1, col2, col3 = st.columns(4)
+col1, col2, col3 = st.columns(3)
 
 with col1:
     JoiningYear = st.text_input('Joining Year')
